@@ -1,7 +1,7 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
 
-cmake_minimum_required (VERSION 3.14)
+cmake_minimum_required(VERSION 3.14)
 
 idf_component_register()
 
@@ -19,5 +19,9 @@ target_compile_options(az_iot_middleware_freertos PRIVATE
         -Wno-pedantic
         -Wno-sign-conversion
         )
+
+# suppress library header compiler warnings
+get_target_property(az_iot_middleware_freertos_INCLUDE_DIRECTORIES az_iot_middleware_freertos INTERFACE_INCLUDE_DIRECTORIES)
+target_include_directories(az_iot_middleware_freertos SYSTEM PUBLIC ${az_iot_middleware_freertos_INCLUDE_DIRECTORIES})
 
 target_link_libraries(${COMPONENT_LIB} INTERFACE az_iot_middleware_freertos)
