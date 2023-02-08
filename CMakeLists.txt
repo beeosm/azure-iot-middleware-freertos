@@ -14,6 +14,7 @@ include_directories(${IDF_PATH}/components/freertos/FreeRTOS-Kernel/include/free
 option(WARNINGS_AS_ERRORS FALSE)
 
 # Add the middleware library
+set(USE_COREHTTP TRUE)
 add_subdirectory(source/)
 target_compile_options(az_iot_middleware_freertos PRIVATE
         -Wno-pedantic
@@ -24,4 +25,9 @@ target_compile_options(az_iot_middleware_freertos PRIVATE
 get_target_property(az_iot_middleware_freertos_INCLUDE_DIRECTORIES az_iot_middleware_freertos INTERFACE_INCLUDE_DIRECTORIES)
 target_include_directories(az_iot_middleware_freertos SYSTEM PUBLIC ${az_iot_middleware_freertos_INCLUDE_DIRECTORIES})
 
-target_link_libraries(${COMPONENT_LIB} INTERFACE az_iot_middleware_freertos)
+target_link_libraries(
+        ${COMPONENT_LIB}
+        INTERFACE
+        az_iot_middleware_freertos
+        azure_iot_core_http
+)
