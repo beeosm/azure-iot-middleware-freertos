@@ -104,22 +104,28 @@ else()
   )
 
   target_link_libraries(az_iot_middleware_freertos
-    PUBLIC
-      coremqtt
-  )
-
-  if(${USE_COREHTTP})
-    target_link_libraries(az_iot_middleware_freertos
-      PUBLIC
-        corehttp
-    )
-  endif()
+          PUBLIC
+          coremqtt
+          )
 
   target_compile_definitions(az_iot_middleware_freertos
-    PRIVATE
-      MQTT_DO_NOT_USE_CUSTOM_CONFIG
-  )
-endif()
+          PRIVATE
+          MQTT_DO_NOT_USE_CUSTOM_CONFIG
+          )
+endif ()
+
+if (${USE_COREHTTP})
+  target_link_libraries(az_iot_middleware_freertos
+          PUBLIC
+          corehttp
+          )
+endif ()
+
+# Include mbedTLS port
+target_sources(az_iot_middleware_freertos
+        PRIVATE
+        ${CMAKE_CURRENT_LIST_DIR}/../ports/mbedTLS/azure_iot_jws_mbedtls.c
+        )
 
 az_add_compile_options(az_iot_middleware_freertos)
 
