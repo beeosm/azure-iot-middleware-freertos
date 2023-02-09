@@ -2,6 +2,7 @@
 	path = libraries/azure-sdk-for-c
 	url = https://github.com/Azure/azure-sdk-for-c.git
 [submodule "libraries/coreMQTT"]
+	branch = v1.1.0
 	path = libraries/coreMQTT
 	url = https://github.com/FreeRTOS/coreMQTT.git
 [submodule "libraries/coreHTTP"]
