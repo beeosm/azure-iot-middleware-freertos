@@ -20,12 +20,12 @@
  */
 typedef struct AzureIoTJWS_RootKey
 {
-    uint8_t * pucRootKeyId;           /**< The pointer to the root key id. */
-    uint32_t ulRootKeyIdLength;       /**< The length of the root key id. */
-    uint8_t * pucRootKeyN;            /**< The pointer to the root key modulus. */
-    uint32_t ulRootKeyNLength;        /**< The length of the root key modulus. */
-    uint8_t * pucRootKeyExponent;     /**< The pointer to the root key exponent. */
-    uint32_t ulRootKeyExponentLength; /**< The length of the root key exponent. */
+    uint8_t const* pucRootKeyId;            /**< The pointer to the root key id. */
+    uint32_t       ulRootKeyIdLength;       /**< The length of the root key id. */
+    uint8_t const* pucRootKeyN;             /**< The pointer to the root key modulus. */
+    uint32_t       ulRootKeyNLength;        /**< The length of the root key modulus. */
+    uint8_t const* pucRootKeyExponent;      /**< The pointer to the root key exponent. */
+    uint32_t       ulRootKeyExponentLength; /**< The length of the root key exponent. */
 } AzureIoTJWS_RootKey_t;
 
 
