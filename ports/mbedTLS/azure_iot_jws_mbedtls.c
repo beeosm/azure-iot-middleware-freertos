@@ -697,14 +697,15 @@ static AzureIoTResult_t prvVerifySHAMatch( prvJWSValidationContext_t * pxManifes
     return eAzureIoTSuccess;
 }
 
-AzureIoTResult_t AzureIoTJWS_ManifestAuthenticate( const uint8_t * pucManifest,
-                                                   uint32_t ulManifestLength,
-                                                   uint8_t * pucJWS,
-                                                   uint32_t ulJWSLength,
-                                                   AzureIoTJWS_RootKey_t * xADURootKeys,
-                                                   uint32_t ulADURootKeysLength,
-                                                   uint8_t * pucScratchBuffer,
-                                                   uint32_t ulScratchBufferLength )
+AzureIoTResult_t AzureIoTJWS_ManifestAuthenticate(
+      const uint8_t*               pucManifest,
+      uint32_t                     ulManifestLength,
+      uint8_t*                     pucJWS,
+      uint32_t                     ulJWSLength,
+      AzureIoTJWS_RootKey_t const* xADURootKeys,
+      uint32_t                     ulADURootKeysLength,
+      uint8_t*                     pucScratchBuffer,
+      uint32_t                     ulScratchBufferLength)
 {
     az_result xCoreResult;
     AzureIoTResult_t xResult;
