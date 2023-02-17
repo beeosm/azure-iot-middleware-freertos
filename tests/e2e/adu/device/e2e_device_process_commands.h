@@ -74,7 +74,7 @@ void vHandlePropertiesMessage( AzureIoTHubClientPropertiesResponse_t * pxMessage
 TlsTransportStatus_t xConnectToServerWithBackoffRetries( const char * pcHostName,
                                                          uint32_t ulPort,
                                                          NetworkCredentials_t * pxNetworkCredentials,
-                                                         NetworkContext_t * pxNetworkContext );
+                                                         void * pxNetworkContext );
 
 /**
  * Calculate HMAC

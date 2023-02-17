@@ -1125,7 +1125,7 @@ uint64_t ulGetUnixTime( void )
 TlsTransportStatus_t xConnectToServerWithBackoffRetries( const char * pHostName,
                                                          uint32_t port,
                                                          NetworkCredentials_t * pxNetworkCredentials,
-                                                         NetworkContext_t * pxNetworkContext )
+                                                         void * pxNetworkContext )
 {
     TlsTransportStatus_t xNetworkStatus;
     BackoffAlgorithmStatus_t xBackoffAlgStatus = BackoffAlgorithmSuccess;

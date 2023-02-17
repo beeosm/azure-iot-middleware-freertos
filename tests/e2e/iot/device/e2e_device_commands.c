@@ -157,7 +157,7 @@ static uint32_t prvStartProvisioning( az_span * pxEndpoint,
                                       az_span * pxDeviceId,
                                       az_span * pxHostname )
 {
-    NetworkContext_t xNetworkContext = { 0 };
+    void * xNetworkContext = { 0 };
     TlsTransportParams_t xTlsTransportParams = { 0 };
     AzureIoTResult_t xResult;
     AzureIoTTransportInterface_t xTransport;
@@ -1296,7 +1296,7 @@ uint64_t ulGetUnixTime( void )
 TlsTransportStatus_t xConnectToServerWithBackoffRetries( const char * pHostName,
                                                          uint32_t port,
                                                          NetworkCredentials_t * pxNetworkCredentials,
-                                                         NetworkContext_t * pxNetworkContext )
+                                                         void * pxNetworkContext )
 {
     TlsTransportStatus_t xNetworkStatus;
     BackoffAlgorithmStatus_t xBackoffAlgStatus = BackoffAlgorithmSuccess;

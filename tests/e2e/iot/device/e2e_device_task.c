@@ -35,7 +35,7 @@ static void vTestEntry( void ** ppvState )
 {
     NetworkCredentials_t xNetworkCredentials = { 0 };
     AzureIoTTransportInterface_t xTransport;
-    NetworkContext_t xNetworkContext = { 0 };
+    void * xNetworkContext = { 0 };
     TlsTransportParams_t xTlsTransportParams = { 0 };
     AzureIoTHubClientOptions_t xHubOptions = { 0 };
     bool xSessionPresent = false;

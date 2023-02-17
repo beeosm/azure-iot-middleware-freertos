@@ -135,7 +135,7 @@ struct NetworkContext;
  *
  * @return The number of bytes received or a negative error code.
  */
-typedef int32_t ( * AzureIoTTransportRecv_t )( struct NetworkContext * pxNetworkContext,
+typedef int32_t ( * AzureIoTTransportRecv_t )( void * pxNetworkContext,
                                                void * pvBuffer,
                                                size_t xBytesToRecv );
 
@@ -148,7 +148,7 @@ typedef int32_t ( * AzureIoTTransportRecv_t )( struct NetworkContext * pxNetwork
  *
  * @return The number of bytes sent or a negative error code.
  */
-typedef int32_t ( * AzureIoTTransportSend_t )( struct NetworkContext * pxNetworkContext,
+typedef int32_t ( * AzureIoTTransportSend_t )( void * pxNetworkContext,
                                                const void * pvBuffer,
                                                size_t xBytesToSend );
 
@@ -159,7 +159,7 @@ typedef struct AzureIoTTransportInterface
 {
     AzureIoTTransportRecv_t xRecv;            /**< Transport receive interface. */
     AzureIoTTransportSend_t xSend;            /**< Transport send interface. */
-    struct NetworkContext * pxNetworkContext; /**< Implementation-defined network context. */
+    void * pxNetworkContext; /**< Implementation-defined network context. */
 } AzureIoTTransportInterface_t;
 
 #endif /* AZURE_IOT_TRANSPORT_INTERFACE_H */
