@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.14)
 
 project(az_iot_middleware_freertos LANGUAGES C)
 
-set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD 11)
 
 # Options for building the lib
 set(FREERTOS_DIRECTORY CACHE STRING "The directory which has the source code for FreeRTOS (as structured on their Github repo).")
