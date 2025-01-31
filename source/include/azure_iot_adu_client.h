@@ -383,7 +383,7 @@ AzureIoTResult_t AzureIoTADUClient_ParseRequest( AzureIoTADUClient_t * pxAzureIo
  * @param[in] pulRequestId Pointer to request id to use for the operation.
  * @return An #AzureIoTResult_t with the result of the operation.
  */
-AzureIoTResult_t AzureIoTADUClient_SendResponse( AzureIoTADUClient_t * pxAzureIoTADUClient,
+AzureIoTResult_t AzureIoTADUClient_SendResponse( AzureIoTADUClient_t const* pxAzureIoTADUClient,
                                                  AzureIoTHubClient_t * pxAzureIoTHubClient,
                                                  AzureIoTADURequestDecision_t xRequestDecision,
                                                  uint32_t ulPropertyVersion,
@@ -407,12 +407,12 @@ AzureIoTResult_t AzureIoTADUClient_SendResponse( AzureIoTADUClient_t * pxAzureIo
  * @param[in] pulRequestId An optional request id to be used for the publish. This can be `NULL`.
  * @return An #AzureIoTResult_t with the result of the operation.
  */
-AzureIoTResult_t AzureIoTADUClient_SendAgentState( AzureIoTADUClient_t * pxAzureIoTADUClient,
+AzureIoTResult_t AzureIoTADUClient_SendAgentState( AzureIoTADUClient_t const* pxAzureIoTADUClient,
                                                    AzureIoTHubClient_t * pxAzureIoTHubClient,
-                                                   AzureIoTADUClientDeviceProperties_t * pxDeviceProperties,
-                                                   AzureIoTADUUpdateRequest_t * pxAduUpdateRequest,
+                                                   AzureIoTADUClientDeviceProperties_t const* pxDeviceProperties,
+                                                   AzureIoTADUUpdateRequest_t const* pxAduUpdateRequest,
                                                    AzureIoTADUAgentState_t xAgentState,
-                                                   AzureIoTADUClientInstallResult_t * pxUpdateResults,
+                                                   AzureIoTADUClientInstallResult_t const* pxUpdateResults,
                                                    uint8_t * pucBuffer,
                                                    uint32_t ulBufferSize,
                                                    uint32_t * pulRequestId );

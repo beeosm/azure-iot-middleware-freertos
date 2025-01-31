@@ -264,7 +264,7 @@ AzureIoTResult_t AzureIoTADUClient_ParseRequest( AzureIoTADUClient_t * pxAzureIo
     return eAzureIoTSuccess;
 }
 
-AzureIoTResult_t AzureIoTADUClient_SendResponse( AzureIoTADUClient_t * pxAzureIoTADUClient,
+AzureIoTResult_t AzureIoTADUClient_SendResponse( AzureIoTADUClient_t const* pxAzureIoTADUClient,
                                                  AzureIoTHubClient_t * pxAzureIoTHubClient,
                                                  AzureIoTADURequestDecision_t xRequestDecision,
                                                  uint32_t ulPropertyVersion,
@@ -323,7 +323,7 @@ AzureIoTResult_t AzureIoTADUClient_SendResponse( AzureIoTADUClient_t * pxAzureIo
     return eAzureIoTSuccess;
 }
 
-static void prvFillBaseAduDeviceProperties( AzureIoTADUClientDeviceProperties_t * pxDeviceProperties,
+static void prvFillBaseAduDeviceProperties( AzureIoTADUClientDeviceProperties_t const* pxDeviceProperties,
                                             az_iot_adu_client_device_properties * pxBaseAduDeviceProperties )
 {
     pxBaseAduDeviceProperties->manufacturer = az_span_create(
@@ -369,7 +369,7 @@ static void prvFillBaseAduDeviceProperties( AzureIoTADUClientDeviceProperties_t 
         ( int32_t ) pxDeviceProperties->ulDeliveryOptimizationAgentVersionLength );
 }
 
-static void prvFillBaseAduWorkflow( AzureIoTADUUpdateRequest_t * pxAduUpdateRequest,
+static void prvFillBaseAduWorkflow( AzureIoTADUUpdateRequest_t const* pxAduUpdateRequest,
                                     az_iot_adu_client_workflow * pxBaseWorkflow )
 {
     if( pxAduUpdateRequest != NULL )
@@ -384,7 +384,7 @@ static void prvFillBaseAduWorkflow( AzureIoTADUUpdateRequest_t * pxAduUpdateRequ
     }
 }
 
-static void prvFillBaseAduInstallResults( AzureIoTADUClientInstallResult_t * pxUpdateResults,
+static void prvFillBaseAduInstallResults( AzureIoTADUClientInstallResult_t const* pxUpdateResults,
                                           az_iot_adu_client_install_result * pxBaseInstallResults )
 {
     memset( pxBaseInstallResults, 0, sizeof( *pxBaseInstallResults ) );
@@ -431,12 +431,12 @@ static void prvFillBaseAduInstallResults( AzureIoTADUClientInstallResult_t * pxU
     }
 }
 
-AzureIoTResult_t AzureIoTADUClient_SendAgentState( AzureIoTADUClient_t * pxAzureIoTADUClient,
+AzureIoTResult_t AzureIoTADUClient_SendAgentState( AzureIoTADUClient_t const* pxAzureIoTADUClient,
                                                    AzureIoTHubClient_t * pxAzureIoTHubClient,
-                                                   AzureIoTADUClientDeviceProperties_t * pxDeviceProperties,
-                                                   AzureIoTADUUpdateRequest_t * pxAduUpdateRequest,
+                                                   AzureIoTADUClientDeviceProperties_t const* pxDeviceProperties,
+                                                   AzureIoTADUUpdateRequest_t const* pxAduUpdateRequest,
                                                    AzureIoTADUAgentState_t xAgentState,
-                                                   AzureIoTADUClientInstallResult_t * pxUpdateResults,
+                                                   AzureIoTADUClientInstallResult_t const* pxUpdateResults,
                                                    uint8_t * pucBuffer,
                                                    uint32_t ulBufferSize,
                                                    uint32_t * pulRequestId )

@@ -603,7 +603,7 @@ static AzureIoTResult_t prvBase64DecodeJWSHeaderAndPayload( prvJWSValidationCont
 }
 
 static AzureIoTResult_t prvValidateRootKey( prvJWSValidationContext_t * pxManifestContext,
-                                            AzureIoTJWS_RootKey_t * xADURootKeys,
+                                            AzureIoTJWS_RootKey_t const* xADURootKeys,
                                             uint32_t ulADURootKeysLength,
                                             int32_t * pulADURootKeyIndex )
 {
